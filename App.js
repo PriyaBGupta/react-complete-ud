@@ -15,13 +15,16 @@ import Person from './Person/Person';
         this.setState({showPerson:!doesShow});
     }
     render (){
+        let person = null;
+        if(this.state.showPerson){
+            person=(<Person age = {this.state.persons[0].age} name ={this.state.persons[0].name}/>)
+        }
+
     return(<div className="App">
         <h1>I am React App</h1>
         <button onClick={this.switchNameHandler.bind(this,'Sourabh')}>change the name</button>
         <button onClick={this.togglePersonHandler}>togglePerson</button>
-        {this.state.showPerson?
-            <Person age = {this.state.persons[0].age} name ={this.state.persons[0].name}/>:null
-        }
+        {person}
     </div>)
     }
 }
