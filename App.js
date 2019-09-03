@@ -15,7 +15,7 @@ import Person from './Person/Person';
         this.setState({showPerson:!doesShow});
     }
     deletePersonHandler = personIndex =>{
-        const persons = this.state.persons;
+        const persons = [...this.state.persons];
         persons.splice(personIndex,1);
         this.setState({persons:persons})
     }
