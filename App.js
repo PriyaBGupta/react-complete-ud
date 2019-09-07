@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Radium from 'radium';
     class App extends Component{
     state ={
         persons:[{name:'Priya',age:25,id:'abc'},{name:'Aman',age:25,id:'xyz'},{name:'Vidya',age:30,id:'mno'}],
@@ -30,8 +31,11 @@ import Person from './Person/Person';
 
     render (){
         const style ={
-            color:'blue',
-            fontSize:'20px'
+            backgroundColor:'blue',
+            fontSize:'20px',
+            ':hover':{
+                backgroundColor: 'lightblue'
+            }
         }
         let persons = null;
         if(this.state.showPerson){
@@ -46,7 +50,11 @@ import Person from './Person/Person';
                         key={person.id}/>
                 })}
             </div>)
-            style.color='red';
+            style.backgroundColor='red';
+            style[':hover']={
+                backgroundColor: 'salmon'
+            }
+
         }
         const classes =[];
         if(this.state.persons.length<=2){
@@ -66,4 +74,4 @@ import Person from './Person/Person';
 }
 
 
-export default App;
+export default Radium(App);
