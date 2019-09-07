@@ -48,9 +48,17 @@ import Person from './Person/Person';
             </div>)
             style.color='red';
         }
+        const classes =[];
+        if(this.state.persons.length<=2){
+            classes.push('color-green');
+        }
+        if(this.state.persons.length<=1){
+            classes.push('bold');
+        }
 
     return(<div className="App">
         <h1>I am React App</h1>
+        <p className={classes.join(' ')}>Heyy I am working on classes</p>
         <button style ={style} onClick={this.togglePersonHandler}>togglePerson</button>
         {persons}
     </div>)
