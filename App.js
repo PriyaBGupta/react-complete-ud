@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+import Radium,{StyleRoot} from 'radium';
     class App extends Component{
     state ={
         persons:[{name:'Priya',age:25,id:'abc'},{name:'Aman',age:25,id:'xyz'},{name:'Vidya',age:30,id:'mno'}],
@@ -64,12 +64,15 @@ import Radium from 'radium';
             classes.push('bold');
         }
 
-    return(<div className="App">
-        <h1>I am React App</h1>
-        <p className={classes.join(' ')}>Heyy I am working on classes</p>
-        <button style ={style} onClick={this.togglePersonHandler}>togglePerson</button>
-        {persons}
-    </div>)
+    return(
+        <StyleRoot>
+            <div className="App">
+                <h1>I am React App</h1>
+                <p className={classes.join(' ')}>Heyy I am working on classes</p>
+                <button style ={style} onClick={this.togglePersonHandler}>togglePerson</button>
+                {persons}
+            </div>
+        </StyleRoot>)
     }
 }
 
