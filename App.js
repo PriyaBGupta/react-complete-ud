@@ -30,10 +30,7 @@ import Person from './Person/Person';
     }
 
     render (){
-        const style ={
-            backgroundColor:'blue',
-            fontSize:'20px'
-        }
+        let style = classes['blue-button'];
         let persons = null;
         if(this.state.showPerson){
             console.log("Is it working");
@@ -47,7 +44,7 @@ import Person from './Person/Person';
                         key={person.id}/>
                 })}
             </div>)
-            style.backgroundColor='red';
+            style = classes['red-button'];
 
         }
         const assignedClasses =[];
@@ -62,7 +59,7 @@ import Person from './Person/Person';
         <div className={classes.App}>
             <h1>I am React App</h1>
             <p className={assignedClasses.join(' ')}>Heyy I am working on classes</p>
-            <button style ={style} onClick={this.togglePersonHandler}>togglePerson</button>
+            <button className ={style} onClick={this.togglePersonHandler}>togglePerson</button>
             {persons}
         </div>)
     }
