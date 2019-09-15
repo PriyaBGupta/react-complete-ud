@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Cockpit.module.css';
 const cockpit = (props)=>{
+    console.log('[Cockpit.js] render');
     let style = classes['blue-button'];
     const assignedClasses =[];
     if(props.persons.length<=2){
