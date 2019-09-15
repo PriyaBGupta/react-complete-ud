@@ -4,7 +4,19 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
     class App extends Component{
-    state ={
+        constructor(props){
+            super(props);
+            console.log('[App.js] constructor');
+        }
+        static getDerivedStateFromProps(props,state){
+            console.log('[App.js] getDerivedStateFromProps', props);
+            return state;
+        }
+        componentDidMount() {
+            console.log('[App.js],componentDidMount ');
+        }
+
+        state ={
         persons:[{name:'Priya',age:25,id:'abc'},{name:'Aman',age:25,id:'xyz'},{name:'Vidya',age:30,id:'mno'}],
         showPerson: false
     }
@@ -31,7 +43,7 @@ import Cockpit from '../components/Cockpit/Cockpit';
     }
 
     render (){
-
+        console.log('[App.js] render');
         let persons = null;
         if(this.state.showPerson){
             console.log("Is it working");
