@@ -1,0 +1,18 @@
+.color-green{
+    color: green;
+}
+.bold{
+    font-weight:bold ;
+}
+.Cockpit .blue-button{
+    background-color: blue;
+}
+.blue-button:hover{
+    background-color: lightblue;
+}
+.red-button{
+    background-color: red;
+}
+.red-button:hover{
+    background-color: salmon;
+}
