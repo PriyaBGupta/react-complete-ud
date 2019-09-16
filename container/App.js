@@ -15,6 +15,13 @@ import Cockpit from '../components/Cockpit/Cockpit';
         componentDidMount() {
             console.log('[App.js],componentDidMount ');
         }
+        shouldComponentUpdate(nextProps, nextState, nextContext) {
+            console.log('[App.js] shouldComponentUpdate');
+            return true;
+        }
+        componentDidUpdate() {
+            console.log('[App.js] componentDidUpdate');
+        }
 
         state ={
         persons:[{name:'Priya',age:25,id:'abc'},{name:'Aman',age:25,id:'xyz'},{name:'Vidya',age:30,id:'mno'}],
