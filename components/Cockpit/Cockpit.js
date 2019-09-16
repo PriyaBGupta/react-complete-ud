@@ -2,8 +2,12 @@ import React,{ useEffect } from 'react';
 import classes from './Cockpit.module.css';
 const Cockpit = (props)=>{
     useEffect(()=>{
-        console.log('[[Cockpit.js] useEffect]')
-    });
+        console.log('[[Cockpit.js] useEffect]');
+        setTimeout(()=>{
+            alert('saved data to cloud');
+
+        },1000);
+    },[props.persons]);//if [] then no dependency and hence no repetition of call
     console.log('[Cockpit.js] render');
     let style = classes['blue-button'];
     const assignedClasses =[];
