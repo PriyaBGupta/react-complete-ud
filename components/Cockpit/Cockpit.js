@@ -1,6 +1,17 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import classes from './Cockpit.module.css';
-const cockpit = (props)=>{
+const Cockpit = (props)=>{
+    useEffect(()=>{
+        console.log('[[Cockpit.js] useEffect]');
+        setTimeout(()=>{
+            alert('saved data to cloud');
+
+        },1000);
+        return()=>{
+            console.log('[Cockpit] useEffect umount');
+        }
+    },[]);//if [] then no dependency and hence no repetition of call
+    console.log('[Cockpit.js] render');
     let style = classes['blue-button'];
     const assignedClasses =[];
     if(props.persons.length<=2){
@@ -20,4 +31,4 @@ const cockpit = (props)=>{
         </div>
     )
 }
-export default cockpit;
+export default Cockpit;
