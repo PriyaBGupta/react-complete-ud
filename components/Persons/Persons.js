@@ -1,11 +1,44 @@
-import React from 'react';
+import React,{PureComponent} from 'react';
 import Person from './Person/Person'
-const persons = (props) => props.persons.map((person,index)=>{
-    return <Person
+class Persons extends PureComponent{
+    static getDerivedStateFromProps(props,state){
+        console.log('[Persons.js] getDerivedStateFromProps');
+        return state;
+    }
+    /*shouldComponentUpdate(nextProps, nextState, nextContext) {
+
+        if(nextProps.persons !== this.props.persons||
+            nextProps.changed !== this.props.changed||
+            nextProps.clicked !== this.props.clicked){
+            console.log('[Persons.js] shouldComponentUpdate true');
+            return true;
+        }else{
+            console.log('[Persons.js] shouldComponentUpdate false');
+            return false;
+        }
+
+    }*/
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('[Persons.js] getSnapshotBeforeUpdate');
+        return null;
+    }
+    componentDidUpdate() {
+        console.log('[Persons.js] componentDidUpdate');
+    }
+    componentWillUnmount() {
+        console.log('[Persons.js] componentWillUnmount');
+    }
+
+    render(){
+        console.log('[Persons.js] render');
+       return(this.props.persons.map((person,index)=>{
+            return(<Person
         name ={person.name}
         age={person.age}
-        click ={()=>props.clicked(index)}
-        changed = {(event)=> props.changed(event,person.id)}
-        key={person.id}/>
-});
-export default persons;
+        click ={()=>this.props.clicked(index)}
+        changed = {(event)=> this.props.changed(event,person.id)}
+        key={person.id}/>)
+    }));
+   }
+}
+export default Persons;
