@@ -3,6 +3,13 @@ import withClass from '../../../hoc/withClass';
 import Auxilary from '../../../hoc/Auxilary';
 import PropTypes from 'prop-types';
 class Person extends Component{
+    constructor(props){
+        super(props);
+        this.inputElement = React.createRef();
+    }
+    componentDidMount() {
+        this.inputElement.current.focus();
+    }
 
     render(){
         console.log('[Person.js] render');
@@ -10,7 +17,8 @@ class Person extends Component{
             <Auxilary>
                 <p onClick={this.props.click} key='i1'> I am {this.props.name} and I am {this.props.age} years old!</p>
                 <p key='i2'>{this.props.children}</p>
-                <input key='i3' type="text" onChange={this.props.changed} value={this.props.name}/>
+                <input key='i3' type="text" onChange={this.props.changed} value={this.props.name}
+                ref={this.inputElement}/>
             </Auxilary>
         )
     }
